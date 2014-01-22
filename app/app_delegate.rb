@@ -81,12 +81,8 @@ class AppDelegate
     urlStr = event.paramDescriptorForKeyword(keyDirectObject).stringValue
     @text.stringValue = urlStr
 
-    pid = Process.spawn("osascript", "-e", <<-SCRIPT)
-tell Application "#{NSBundle.mainBundle.infoDictionary['CFBundleName']}"
-  activate
-end tell
-    SCRIPT
-    Process.detach(pid)
+    app, = NSRunningApplication.runningApplicationsWithBundleIdentifier(NSBundle.mainBundle.bundleIdentifier)
+    app.activateWithOptions(NSApplicationActivateIgnoringOtherApps)
   end
 
   def openBrowser(app, *args)
