@@ -90,11 +90,15 @@ end tell
   end
 
   def openBrowser(app, *args)
-    pid = Process.spawn('open', '-a', app, @text.stringValue, *args)
+    r, w = IO.pipe
+    pid = Process.spawn('open', '-a', app, @text.stringValue, *args, [:out, :err] => w)
+    w.close
     pid, status = Process.waitpid2(pid)
+    output = r.read
+    r.close
     unless status.success?
       alert = NSAlert.new
-      alert.messageText = "Failed to open #{app}"
+      alert.messageText = "Failed to open #{app}\n\n#{output}"
       alert.runModal
     end
   end
