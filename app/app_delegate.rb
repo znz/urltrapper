@@ -19,6 +19,7 @@ class AppDelegate
     text_height = height/2
     @text = NSTextField.alloc.initWithFrame([[margin, height-text_height], [width-margin*2, text_height-margin]])
     @text.autoresizingMask = NSViewMinXMargin|NSViewMinYMargin|NSViewWidthSizable|NSViewHeightSizable
+    @text.stringValue = "http://www.apple.com/" # default URL
     @mainWindow.contentView.addSubview(@text)
 
     buildButtons(width, height, margin)
