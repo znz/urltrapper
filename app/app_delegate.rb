@@ -88,24 +88,29 @@ end tell
     Process.detach(pid)
   end
 
-  def openBrowser(bundleId, *args)
-    pid = Process.spawn('open', '-b', bundleId, @text.stringValue, *args)
-    Process.detach(pid)
+  def openBrowser(app, *args)
+    pid = Process.spawn('open', '-a', app, @text.stringValue, *args)
+    pid, status = Process.waitpid2(pid)
+    unless status.success?
+      alert = NSAlert.new
+      alert.messageText = "Failed to open #{app}"
+      alert.runModal
+    end
   end
 
   def openFirefox
-    openBrowser('org.mozilla.firefox')
+    openBrowser('Firefox')
   end
 
   def openChrome
-    openBrowser('com.google.Chrome')
+    openBrowser('Google Chrome')
   end
 
   def openChromeIncognito
-    openBrowser('com.google.Chrome', '--args', '-incognito')
+    openBrowser('Google Chrome', '--args', '-incognito')
   end
 
   def openSafari
-    openBrowser('com.apple.Safari')
+    openBrowser('Safari')
   end
 end
