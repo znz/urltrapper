@@ -11,4 +11,12 @@ end
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'urltrapper'
+  app.info_plist['CFBundleURLTypes'] = [
+    { 'CFBundleURLName' => 'http URL',
+      'CFBundleURLSchemes' => ['http'] },
+    { 'CFBundleURLName' => 'https URL',
+      'CFBundleURLSchemes' => ['https'] },
+    { 'CFBundleURLName' => 'ftp URL',
+      'CFBundleURLSchemes' => ['ftp'] },
+  ]
 end
