@@ -88,23 +88,24 @@ end tell
     Process.detach(pid)
   end
 
-  def openFirefox
-    pid = Process.spawn("open", "-b", "org.mozilla.firefox", @text.stringValue)
+  def openBrowser(bundleId, *args)
+    pid = Process.spawn('open', '-b', bundleId, @text.stringValue, *args)
     Process.detach(pid)
+  end
+
+  def openFirefox
+    openBrowser('org.mozilla.firefox')
   end
 
   def openChrome
-    pid = Process.spawn("open", "-b", "com.google.Chrome", @text.stringValue)
-    Process.detach(pid)
+    openBrowser('com.google.Chrome')
   end
 
   def openChromeIncognito
-    pid = Process.spawn("open", "-b", "com.google.Chrome", @text.stringValue, "--args", "-incognito")
-    Process.detach(pid)
+    openBrowser('com.google.Chrome', '--args', '-incognito')
   end
 
   def openSafari
-    pid = Process.spawn("open", "-b", "com.apple.Safari", @text.stringValue)
-    Process.detach(pid)
+    openBrowser('com.apple.Safari')
   end
 end
