@@ -39,10 +39,6 @@ class AppDelegate
       :openChrome,
     ],
     [
-      'Open Google Chrome (incognito)',
-      :openChromeIncognito,
-    ],
-    [
       'Open Safari',
       :openSafari,
     ],
@@ -85,33 +81,29 @@ class AppDelegate
     app.activateWithOptions(NSApplicationActivateIgnoringOtherApps)
   end
 
-  def openBrowser(app, *args)
-    r, w = IO.pipe
-    pid = Process.spawn('open', '-a', app, @text.stringValue, *args, [:out, :err] => w)
-    w.close
-    pid, status = Process.waitpid2(pid)
-    output = r.read
-    r.close
-    unless status.success?
+  NSWorkspaceLaunchAsync = 0x00010000
+  NSWorkspaceLaunchAllowingClassicStartup = 0x00020000
+  NSWorkspaceLaunchDefault = NSWorkspaceLaunchAsync | NSWorkspaceLaunchAllowingClassicStartup
+
+  def openBrowser(app_bundle_id)
+    url = NSURL.URLWithString @text.stringValue
+    ret = NSWorkspace.sharedWorkspace.openURLs([url], withAppBundleIdentifier: app_bundle_id, options: NSWorkspaceLaunchDefault, additionalEventParamDescriptor: nil, launchIdentifiers: nil)
+    unless ret
       alert = NSAlert.new
-      alert.messageText = "Failed to open #{app}\n\n#{output}"
+      alert.messageText = "Failed to open #{app}"
       alert.runModal
     end
   end
 
   def openFirefox
-    openBrowser('Firefox')
+    openBrowser('org.mozilla.Firefox')
   end
 
   def openChrome
-    openBrowser('Google Chrome')
-  end
-
-  def openChromeIncognito
-    openBrowser('Google Chrome', '--args', '-incognito')
+    openBrowser('com.google.Chrome')
   end
 
   def openSafari
-    openBrowser('Safari')
+    openBrowser('com.apple.Safari')
   end
 end
