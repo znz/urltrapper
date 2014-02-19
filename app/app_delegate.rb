@@ -81,7 +81,7 @@ class AppDelegate
     urlStr = event.paramDescriptorForKeyword(keyDirectObject).stringValue
     @text.stringValue = urlStr
 
-    app, = NSRunningApplication.runningApplicationsWithBundleIdentifier(NSBundle.mainBundle.bundleIdentifier)
+    app = NSRunningApplication.currentApplication
     app.activateWithOptions(NSApplicationActivateIgnoringOtherApps)
   end
 
