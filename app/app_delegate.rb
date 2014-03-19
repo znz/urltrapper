@@ -80,10 +80,6 @@ class AppDelegate
     app.activateWithOptions(NSApplicationActivateIgnoringOtherApps)
   end
 
-  NSWorkspaceLaunchAsync = 0x00010000
-  NSWorkspaceLaunchAllowingClassicStartup = 0x00020000
-  NSWorkspaceLaunchDefault = NSWorkspaceLaunchAsync | NSWorkspaceLaunchAllowingClassicStartup
-
   def openBrowser(app_bundle_id)
     url = NSURL.URLWithString @text.stringValue
     ret = NSWorkspace.sharedWorkspace.openURLs([url], withAppBundleIdentifier: app_bundle_id, options: NSWorkspaceLaunchDefault, additionalEventParamDescriptor: nil, launchIdentifiers: nil)
