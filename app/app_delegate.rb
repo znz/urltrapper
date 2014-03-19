@@ -5,6 +5,10 @@ class AppDelegate
     setEventHandler
   end
 
+  def applicationShouldTerminateAfterLastWindowClosed(application)
+    true
+  end
+
   def buildWindow
     width  = 480
     height = 360
