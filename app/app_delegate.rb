@@ -84,10 +84,14 @@ class AppDelegate
     url = NSURL.URLWithString @text.stringValue
     ret = NSWorkspace.sharedWorkspace.openURLs([url], withAppBundleIdentifier: app_bundle_id, options: NSWorkspaceLaunchDefault, additionalEventParamDescriptor: nil, launchIdentifiers: nil)
     unless ret
-      alert = NSAlert.new
-      alert.messageText = "Failed to open #{app}"
-      alert.runModal
+      alert "Failed to open #{app}"
     end
+  end
+
+  def alert(message)
+    alert = NSAlert.new
+    alert.messageText = message
+    alert.runModal
   end
 
   def openFirefox
