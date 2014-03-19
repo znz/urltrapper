@@ -73,8 +73,7 @@ class AppDelegate
   end
 
   def handleGetURLEvent(event, withReplyEvent: replyEvent)
-    keyDirectObject = '----'.unpack('L')[0]
-    urlStr = event.paramDescriptorForKeyword(keyDirectObject).stringValue
+    urlStr = event.paramDescriptorForKeyword(KeyDirectObject).stringValue
     @text.stringValue = urlStr
 
     app = NSRunningApplication.currentApplication
