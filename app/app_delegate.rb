@@ -1,8 +1,12 @@
 class AppDelegate
+  def initialize
+    super
+    setEventHandler
+  end
+
   def applicationDidFinishLaunching(notification)
     buildMenu
     buildWindow
-    setEventHandler
   end
 
   def applicationShouldTerminateAfterLastWindowClosed(application)
@@ -23,11 +27,13 @@ class AppDelegate
     text_height = height/2
     @text = NSTextField.alloc.initWithFrame([[margin, height-text_height], [width-margin*2, text_height-margin]])
     @text.autoresizingMask = NSViewMinXMargin|NSViewMinYMargin|NSViewWidthSizable|NSViewHeightSizable
-    @text.stringValue = "http://www.apple.com/" # default URL
+    @text.stringValue = @url || "http://www.apple.com/" # default URL
     @mainWindow.contentView.addSubview(@text)
 
     buildButtons(width, height, margin)
   end
+
+  MY_DEBUG = false
 
   BUTTONS = [
     [
@@ -77,11 +83,18 @@ class AppDelegate
   end
 
   def handleGetURLEvent(event, withReplyEvent: replyEvent)
+    alert([:handleGetURLEvent, event].inspect) if MY_DEBUG
     urlStr = event.paramDescriptorForKeyword(KeyDirectObject).stringValue
-    @text.stringValue = urlStr
+    setURL(urlStr)
 
     app = NSRunningApplication.currentApplication
     app.activateWithOptions(NSApplicationActivateIgnoringOtherApps)
+  end
+
+  def setURL(urlStr)
+    @url = urlStr
+    alert([:setURL, @url].inspect) if MY_DEBUG
+    @text.stringValue = @url if @text
   end
 
   def openBrowser(app_bundle_id)
