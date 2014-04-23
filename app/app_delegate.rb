@@ -80,6 +80,8 @@ class AppDelegate
     LSSetDefaultHandlerForURLScheme('https', bundle_id)
     LSSetDefaultHandlerForURLScheme('ftp', bundle_id)
     #LSSetDefaultRoleHandlerForContentType('public.html', KLSRolesAll, bundle_id)
+    #LSSetDefaultRoleHandlerForContentType(KUTTypeHTML, KLSRolesViewer, bundle_id)
+    #LSSetDefaultRoleHandlerForContentType(KUTTypeURL, KLSRolesViewer, bundle_id)
   end
 
   def handleGetURLEvent(event, withReplyEvent: replyEvent)
