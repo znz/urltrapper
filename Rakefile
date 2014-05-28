@@ -11,6 +11,9 @@ end
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
   app.name = 'URLTrapper'
+  app.version = '0.1'
+  app.identifier = 'jp.n-z.' + app.name
+  app.copyright = "Copyright © 2013-#{Time.now.year} Kazuhiro NISHIYAMA. All rights reserved."
   app.info_plist['CFBundleURLTypes'] = [
     { 'CFBundleURLName' => 'http URL',
       'CFBundleURLSchemes' => ['http'] },
