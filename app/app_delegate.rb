@@ -1,7 +1,7 @@
 class AppDelegate
   def initialize
     super
-    setEventHandler
+    #setEventHandler
   end
 
   def applicationDidFinishLaunching(notification)
@@ -14,6 +14,10 @@ class AppDelegate
   end
 
   def buildWindow
+    $m = @mainWindowController = MainWindow.alloc.initWithWindowNibName('MainWindow')
+    @mainWindowController.window.makeKeyAndOrderFront(self)
+    return
+
     width  = 480
     height = 360
     @mainWindow = NSWindow.alloc.initWithContentRect([[240, 180], [width, height]],

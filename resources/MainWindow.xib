@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <view key="contentView" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vDY-vr-A4P">
+                        <rect key="frame" x="14" y="13" width="452" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Set Default Browser" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zcg-Gv-Usp">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vOM-hM-1vJ">
+                        <rect key="frame" x="14" y="46" width="452" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Open Safari" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eSC-2N-cRg">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7ZG-Wr-4Pe">
+                        <rect key="frame" x="14" y="79" width="452" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Open Google Chrome" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1lR-cB-7Os">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4eZ-B7-LYk">
+                        <rect key="frame" x="14" y="112" width="452" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="push" title="Open Firefox" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QTy-QC-4wy">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtB-MB-F2j">
+                        <rect key="frame" x="20" y="160" width="440" height="90"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <clipView key="contentView" id="CPa-hT-gO9">
+                            <rect key="frame" x="1" y="1" width="438" height="88"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="d5L-Le-QLd">
+                                    <rect key="frame" x="0.0" y="0.0" width="438" height="88"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="438" height="88"/>
+                                    <size key="maxSize" width="463" height="10000000"/>
+                                    <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="438" height="88"/>
+                                    <size key="maxSize" width="463" height="10000000"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="hWH-Rz-q7g">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="YEc-3J-wz7">
+                            <rect key="frame" x="423" y="1" width="16" height="88"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="wtB-MB-F2j" secondAttribute="bottom" constant="160" id="1Jy-zK-LgW"/>
+                    <constraint firstAttribute="trailing" secondItem="vOM-hM-1vJ" secondAttribute="trailing" constant="20" id="1Lk-rG-S41"/>
+                    <constraint firstAttribute="trailing" secondItem="vDY-vr-A4P" secondAttribute="trailing" constant="20" id="4fr-RW-B3C"/>
+                    <constraint firstItem="vOM-hM-1vJ" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="5la-N0-U5H"/>
+                    <constraint firstItem="wtB-MB-F2j" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="Be9-es-Mr1"/>
+                    <constraint firstItem="wtB-MB-F2j" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="BtR-he-2AJ"/>
+                    <constraint firstAttribute="trailing" secondItem="4eZ-B7-LYk" secondAttribute="trailing" constant="20" id="FCN-FE-Sa6"/>
+                    <constraint firstAttribute="bottom" secondItem="7ZG-Wr-4Pe" secondAttribute="bottom" constant="86" id="Ip8-OB-0yP"/>
+                    <constraint firstAttribute="bottom" secondItem="vDY-vr-A4P" secondAttribute="bottom" constant="20" id="JrW-x0-ZfY"/>
+                    <constraint firstAttribute="trailing" secondItem="7ZG-Wr-4Pe" secondAttribute="trailing" constant="20" id="O0c-Cd-DcW"/>
+                    <constraint firstAttribute="trailing" secondItem="wtB-MB-F2j" secondAttribute="trailing" constant="20" id="V29-7W-m47"/>
+                    <constraint firstItem="4eZ-B7-LYk" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="eFe-kc-ydH"/>
+                    <constraint firstAttribute="bottom" secondItem="vOM-hM-1vJ" secondAttribute="bottom" constant="53" id="pug-AC-IAu"/>
+                    <constraint firstItem="7ZG-Wr-4Pe" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="rh7-9N-ESt"/>
+                    <constraint firstAttribute="bottom" secondItem="4eZ-B7-LYk" secondAttribute="bottom" constant="119" id="u2f-J3-e62"/>
+                    <constraint firstItem="vDY-vr-A4P" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="zFZ-kU-xWM"/>
+                </constraints>
+            </view>
+        </window>
+    </objects>
+</document>
