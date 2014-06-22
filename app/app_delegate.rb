@@ -14,7 +14,7 @@ class AppDelegate
   end
 
   def buildWindow
-    $m = @mainWindowController = MainWindow.alloc.initWithWindowNibName('MainWindow')
+    @mainWindowController = MainWindow.alloc.initWithWindowNibName('MainWindow')
     @mainWindowController.window.makeKeyAndOrderFront(self)
     return
 
