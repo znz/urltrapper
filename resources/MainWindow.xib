@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindow">
             <connections>
+                <outlet property="text" destination="syE-sW-H60" id="Mh9-IP-fbK"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="TQS-ZL-1aE"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+        <window title="URLTrapper" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -27,6 +28,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="setDefaultBrowser:" target="-2" id="vgP-y2-YDW"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vOM-hM-1vJ">
                         <rect key="frame" x="14" y="46" width="452" height="32"/>
@@ -35,6 +39,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="openSafari:" target="-2" id="zur-JA-gWR"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7ZG-Wr-4Pe">
                         <rect key="frame" x="14" y="79" width="452" height="32"/>
@@ -43,6 +50,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="openGoogleChrome:" target="-2" id="3Tn-of-PO3"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4eZ-B7-LYk">
                         <rect key="frame" x="14" y="112" width="452" height="32"/>
@@ -51,15 +61,18 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="openFirefox:" target="-2" id="PRm-eT-sZU"/>
+                        </connections>
                     </button>
-                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtB-MB-F2j">
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ArC-p8-Hvj">
                         <rect key="frame" x="20" y="160" width="440" height="90"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <clipView key="contentView" id="CPa-hT-gO9">
+                        <clipView key="contentView" id="ENu-ba-dsm">
                             <rect key="frame" x="1" y="1" width="438" height="88"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="d5L-Le-QLd">
+                                <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="syE-sW-H60">
                                     <rect key="frame" x="0.0" y="0.0" width="438" height="88"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -72,29 +85,29 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="hWH-Rz-q7g">
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="y2l-Vf-NQL">
                             <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="YEc-3J-wz7">
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="GCr-Hp-DYI">
                             <rect key="frame" x="423" y="1" width="16" height="88"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="wtB-MB-F2j" secondAttribute="bottom" constant="160" id="1Jy-zK-LgW"/>
                     <constraint firstAttribute="trailing" secondItem="vOM-hM-1vJ" secondAttribute="trailing" constant="20" id="1Lk-rG-S41"/>
                     <constraint firstAttribute="trailing" secondItem="vDY-vr-A4P" secondAttribute="trailing" constant="20" id="4fr-RW-B3C"/>
                     <constraint firstItem="vOM-hM-1vJ" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="5la-N0-U5H"/>
-                    <constraint firstItem="wtB-MB-F2j" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="Be9-es-Mr1"/>
-                    <constraint firstItem="wtB-MB-F2j" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="BtR-he-2AJ"/>
                     <constraint firstAttribute="trailing" secondItem="4eZ-B7-LYk" secondAttribute="trailing" constant="20" id="FCN-FE-Sa6"/>
                     <constraint firstAttribute="bottom" secondItem="7ZG-Wr-4Pe" secondAttribute="bottom" constant="86" id="Ip8-OB-0yP"/>
                     <constraint firstAttribute="bottom" secondItem="vDY-vr-A4P" secondAttribute="bottom" constant="20" id="JrW-x0-ZfY"/>
                     <constraint firstAttribute="trailing" secondItem="7ZG-Wr-4Pe" secondAttribute="trailing" constant="20" id="O0c-Cd-DcW"/>
-                    <constraint firstAttribute="trailing" secondItem="wtB-MB-F2j" secondAttribute="trailing" constant="20" id="V29-7W-m47"/>
+                    <constraint firstItem="ArC-p8-Hvj" firstAttribute="leading" secondItem="4eZ-B7-LYk" secondAttribute="leading" id="PgA-DG-I3g"/>
+                    <constraint firstItem="ArC-p8-Hvj" firstAttribute="trailing" secondItem="4eZ-B7-LYk" secondAttribute="trailing" id="PsI-X3-Eyh"/>
+                    <constraint firstItem="4eZ-B7-LYk" firstAttribute="top" secondItem="ArC-p8-Hvj" secondAttribute="bottom" constant="20" symbolic="YES" id="ddZ-v8-79i"/>
                     <constraint firstItem="4eZ-B7-LYk" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="eFe-kc-ydH"/>
+                    <constraint firstItem="ArC-p8-Hvj" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="hES-8I-kj5"/>
                     <constraint firstAttribute="bottom" secondItem="vOM-hM-1vJ" secondAttribute="bottom" constant="53" id="pug-AC-IAu"/>
                     <constraint firstItem="7ZG-Wr-4Pe" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="rh7-9N-ESt"/>
                     <constraint firstAttribute="bottom" secondItem="4eZ-B7-LYk" secondAttribute="bottom" constant="119" id="u2f-J3-e62"/>
