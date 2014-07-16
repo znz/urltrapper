@@ -3,12 +3,15 @@ class MainWindow < NSWindowController
 
   ib_outlet :text, NSTextView
 
-  def setURL(urlStr)
-    @url = urlStr
-    @text.stringValue = @url if @text
+  def setURL(url)
+    @text.stringValue = url if @text
   end
 
   def openBrowser(app_bundle_id)
+    unless @text
+      alert("@text not found")
+      return
+    end
     url = NSURL.URLWithString @text.stringValue
     ret = NSWorkspace.sharedWorkspace.openURLs([url], withAppBundleIdentifier: app_bundle_id, options: NSWorkspaceLaunchDefault, additionalEventParamDescriptor: nil, launchIdentifiers: nil)
     unless ret
