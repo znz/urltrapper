@@ -2,6 +2,7 @@ class AppDelegate
   def initialize
     super
     setEventHandler
+    @urlStr = nil
   end
 
   def applicationDidFinishLaunching(notification)
@@ -16,6 +17,7 @@ class AppDelegate
   def buildWindow
     @mainWindowController = MainWindow.alloc.initWithWindowNibName('MainWindow')
     @mainWindowController.window.makeKeyAndOrderFront(self)
+    @mainWindowController.setURL(@urlStr)
   end
 
   def setEventHandler
@@ -28,7 +30,7 @@ class AppDelegate
 
   def handleGetURLEvent(event, withReplyEvent: replyEvent)
     urlStr = event.paramDescriptorForKeyword(KeyDirectObject).stringValue
-    @mainWindowController.setURL(urlStr)
+    @urlStr = urlStr
 
     app = NSRunningApplication.currentApplication
     app.activateWithOptions(NSApplicationActivateIgnoringOtherApps)

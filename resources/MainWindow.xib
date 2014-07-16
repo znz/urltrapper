@@ -6,7 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindow">
             <connections>
-                <outlet property="urlText" destination="syE-sW-H60" id="cIR-2i-I9r"/>
+                <outlet property="urlTextView" destination="syE-sW-H60" id="a7n-sP-Swm"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="TQS-ZL-1aE"/>
             </connections>
         </customObject>

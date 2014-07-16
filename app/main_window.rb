@@ -1,14 +1,19 @@
 class MainWindow < NSWindowController
   extend IB
 
-  outlet :urlText, NSTextView
+  outlet :urlTextView, NSTextView
 
-  def setURL(url)
-    urlText.string = url
+  def setURL(urlStr)
+    urlTextView.string = urlStr if urlStr
   end
 
   def openBrowser(app_bundle_id)
-    url = NSURL.URLWithString urlText.string
+    urlStr = urlTextView.string
+    if url.empty?
+      alert "Empty URL"
+      return
+    end
+    url = NSURL.URLWithString urlStr
     ret = NSWorkspace.sharedWorkspace.openURLs([url], withAppBundleIdentifier: app_bundle_id, options: NSWorkspaceLaunchDefault, additionalEventParamDescriptor: nil, launchIdentifiers: nil)
     unless ret
       alert "Failed to open #{app}"
