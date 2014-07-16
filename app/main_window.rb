@@ -9,7 +9,7 @@ class MainWindow < NSWindowController
 
   def openBrowser(app_bundle_id)
     urlStr = urlTextView.string
-    if url.empty?
+    if urlStr.empty?
       alert "Empty URL"
       return
     end
