@@ -3,6 +3,7 @@ class AppDelegate
     super
     setEventHandler
     @urlStr = nil
+    @mainWindowController = nil
   end
 
   def applicationDidFinishLaunching(notification)
@@ -20,6 +21,16 @@ class AppDelegate
     @mainWindowController.setURL(@urlStr)
   end
 
+  def setURL(urlStr)
+    if @mainWindowController
+      # when running
+      @mainWindowController.setURL(urlStr)
+    else
+      # launch with URL
+      @urlStr = urlStr
+    end
+  end
+
   def setEventHandler
     NSAppleEventManager.sharedAppleEventManager.setEventHandler(
       self,
@@ -30,7 +41,7 @@ class AppDelegate
 
   def handleGetURLEvent(event, withReplyEvent: replyEvent)
     urlStr = event.paramDescriptorForKeyword(KeyDirectObject).stringValue
-    @urlStr = urlStr
+    setURL(urlStr)
 
     app = NSRunningApplication.currentApplication
     app.activateWithOptions(NSApplicationActivateIgnoringOtherApps)
